@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#566AD6</color>
     <color name="textGrey">#838383</color>
+    <color name="halfTransparent">#80838383</color>
 </resources>

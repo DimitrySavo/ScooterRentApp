@@ -12,8 +12,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/rectangle">
+        android:layout_height="0dp"
+        android:background="@drawable/rectangle"
+        android:layout_marginBottom="40dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomCard">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/upperTextStyle"
+            android:text="Фамилия Имя Отчество"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/upperTextStyle"
+            android:text="Ваш рейтинг: N"/>
+        
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_exit"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -22,6 +46,8 @@
         android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="@id/topLayout"
         app:layout_constraintBottom_toTopOf="@id/bottomCard"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/ic_scooter_with_scooter"/>
 
     <androidx.cardview.widget.CardView
@@ -31,14 +57,14 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:cardCornerRadius="20dp"
-        android:backgroundTint="@color/blue">
+        >
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp">
+            android:layout_height="match_parent">
                 <TextView
                     android:id="@+id/AdditionalInfoTV"
                     android:layout_width="match_parent"
@@ -47,6 +73,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     android:text="Подробная информация"
                     android:textColor="@color/textGrey"
+                    android:padding="10dp"
                     android:textSize="20sp"/>
 
                 <androidx.constraintlayout.widget.Guideline
@@ -54,21 +81,187 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.5"/>
+                    app:layout_constraintGuide_percent="0.4"/>
 
                 <ImageView
+                    android:id="@+id/cardSeparator"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     app:layout_constraintTop_toBottomOf="@id/AdditionalInfoTV"
                     android:background="@color/textGrey"/>
 
                 <TextView
+                    android:id="@+id/surnameTV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@id/cardSeparator"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/cardGuideline">
+                    app:layout_constraintEnd_toStartOf="@id/cardGuideline"
+                    style="@style/textStyle"
+                    android:paddingStart="15dp"
+                    android:paddingVertical="10dp"
+                    android:text="Фамилия: " />
 
-                </TextView>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toEndOf="@id/cardGuideline"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardSeparator"
+                    app:layout_constraintBottom_toBottomOf="@id/surnameTV"
+                    android:paddingHorizontal="5dp"
+                    android:paddingVertical="2dp"
+                    android:hint="Фамилия"
+                    style="@style/customOutlinedBox">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/nameTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/surnameTV"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/cardGuideline"
+                    style="@style/textStyle"
+                    android:paddingStart="15dp"
+                    android:paddingVertical="10dp"
+                    android:text="Имя: " />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/customOutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toEndOf="@id/cardGuideline"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/surnameTV"
+                    app:layout_constraintBottom_toBottomOf="@id/nameTV"
+                    android:paddingHorizontal="5dp"
+                    android:paddingVertical="2dp"
+                    android:hint="Имя">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="2dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/patronymicTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/nameTV"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/cardGuideline"
+                    style="@style/textStyle"
+                    android:paddingStart="15dp"
+                    android:paddingVertical="10dp"
+                    android:text="Отчество: " />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toEndOf="@id/cardGuideline"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/nameTV"
+                    app:layout_constraintBottom_toBottomOf="@id/patronymicTV"
+                    android:paddingHorizontal="5dp"
+                    android:paddingVertical="2dp"
+                    android:hint="Отчество"
+                    style="@style/customOutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="2dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/cityTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/patronymicTV"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/cardGuideline"
+                style="@style/textStyle"
+                android:paddingStart="15dp"
+                android:paddingVertical="10dp"
+                android:text="Город: " />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toEndOf="@id/cardGuideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/patronymicTV"
+                app:layout_constraintBottom_toBottomOf="@id/cityTV"
+                android:paddingHorizontal="5dp"
+                android:paddingVertical="2dp"
+                android:hint="Город"
+                style="@style/customOutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="2dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/emailTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/cityTV"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/cardGuideline"
+                style="@style/textStyle"
+                android:paddingStart="15dp"
+                android:paddingVertical="10dp"
+                android:text="E-mail: " />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toEndOf="@id/cardGuideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cityTV"
+                app:layout_constraintBottom_toBottomOf="@id/emailTV"
+                android:paddingHorizontal="5dp"
+                android:paddingVertical="2dp"
+                android:hint="E-mail"
+                style="@style/customOutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="2dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/annotationTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/emailTV"
+                android:textColor="@color/textGrey"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_marginTop="50dp"
+                android:text="Для изменения полей, впишите в них нужные вам значения, а после подтвердите или отмените изменения"/>
+
+            <Button
+                android:id="@+id/acceptChangesB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Принять изменения"
+                app:layout_constraintTop_toBottomOf="@id/annotationTV"
+                style="@style/filledButtonStyle"/>
+
+            <Button
+                style="@style/transparentButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Отменить изменения"
+                app:layout_constraintTop_toBottomOf="@id/acceptChangesB"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:strokeColor="#80535353"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
