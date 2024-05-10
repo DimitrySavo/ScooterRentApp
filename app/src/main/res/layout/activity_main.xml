@@ -37,7 +37,10 @@
         <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_exit"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            android:src="@drawable/exit_shape"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
